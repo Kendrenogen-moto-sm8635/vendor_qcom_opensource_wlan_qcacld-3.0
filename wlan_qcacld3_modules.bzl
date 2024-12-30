@@ -7,10 +7,7 @@ _target_chipset_map = {
 	"kiwi-v2",
     ],
     "pineapple": [
-	"peach-v2",
-	"peach",
 	"kiwi-v2",
-	"qca6750",
     ],
     "sun": [
 	"peach-v2",
@@ -2369,16 +2366,6 @@ def define_dist(target, variant, chipsets):
             mode_overrides = {"**/*": "644"},
             log = "info",
         )
-    copy_to_dist_dir(
-        name = "{}_all_modules_dist".format(tv),
-        data = dataList,
-        dist_dir = "out/target/product/{}/dlkm/lib/modules/".format(target),
-        flat = True,
-        wipe_dist_dir = False,
-        allow_duplicate_filenames = False,
-        mode_overrides = {"**/*": "644"},
-        log = "info",
-    )
 
 def define_modules():
     for (t, v) in get_all_variants():
